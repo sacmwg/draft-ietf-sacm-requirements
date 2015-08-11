@@ -2,7 +2,9 @@
 
 This is the working area for the IETF SACM Requirements draft.
 
+* [Editor's copy](https://sacmwg.github.io/draft-ietf-sacm-requirements/)
 * [Working Group Draft] (https://tools.ietf.org/html/draft-ietf-sacm-requirements)
+* [Compare Working Group and Editor's Drafts] (https://tools.ietf.org/rfcdiff?url1=https://www.ietf.org/id/draft-ietf-sacm-requirements&url2=https://sacmwg.github.io/draft-ietf-sacm-requirements/draft-ietf-sacm-requirements.txt)
 
 ## Document Status
 

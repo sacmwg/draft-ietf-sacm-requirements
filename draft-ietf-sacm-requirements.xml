@@ -39,7 +39,7 @@
 <!-- keep one blank line between list items -->
 <!-- end of list of popular I-D processing instructions -->
 
-<rfc category="info" docName="draft-ietf-sacm-requirements-09" ipr="trust200902">
+<rfc category="info" docName="draft-ietf-sacm-requirements-latest" ipr="trust200902">
     
   <!-- category values: std, bcp, info, exp, and historic
      ipr values: full3667, noModification3667, noDerivatives3667
@@ -466,4 +466,3 @@ v07 2015-07-06 LLL Updates based on open issue resolutions from 6/29 virtual int
      -->
   </back>
 </rfc>
- 
