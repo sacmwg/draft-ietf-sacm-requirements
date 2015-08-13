@@ -1,0 +1,885 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head profile="http://www.w3.org/2006/03/hcard http://dublincore.org/documents/2008/08/04/dc-html/">
+  <meta http-equiv="Content-Type" content="text/html; charset=us-ascii" />
+
+  <title>Secure Automation and Continuous Monitoring (SACM) Requirements</title>
+
+  <style type="text/css" title="Xml2Rfc (sans serif)">
+  /*<![CDATA[*/
+	  a {
+	  text-decoration: none;
+	  }
+      /* info code from SantaKlauss at http://www.madaboutstyle.com/tooltip2.html */
+      a.info {
+          /* This is the key. */
+          position: relative;
+          z-index: 24;
+          text-decoration: none;
+      }
+      a.info:hover {
+          z-index: 25;
+          color: #FFF; background-color: #900;
+      }
+      a.info span { display: none; }
+      a.info:hover span.info {
+          /* The span will display just on :hover state. */
+          display: block;
+          position: absolute;
+          font-size: smaller;
+          top: 2em; left: -5em; width: 15em;
+          padding: 2px; border: 1px solid #333;
+          color: #900; background-color: #EEE;
+          text-align: left;
+      }
+	  a.smpl {
+	  color: black;
+	  }
+	  a:hover {
+	  text-decoration: underline;
+	  }
+	  a:active {
+	  text-decoration: underline;
+	  }
+	  address {
+	  margin-top: 1em;
+	  margin-left: 2em;
+	  font-style: normal;
+	  }
+	  body {
+	  color: black;
+	  font-family: verdana, helvetica, arial, sans-serif;
+	  font-size: 10pt;
+	  max-width: 55em;
+	  
+	  }
+	  cite {
+	  font-style: normal;
+	  }
+	  dd {
+	  margin-right: 2em;
+	  }
+	  dl {
+	  margin-left: 2em;
+	  }
+	
+	  ul.empty {
+	  list-style-type: none;
+	  }
+	  ul.empty li {
+	  margin-top: .5em;
+	  }
+	  dl p {
+	  margin-left: 0em;
+	  }
+	  dt {
+	  margin-top: .5em;
+	  }
+	  h1 {
+	  font-size: 14pt;
+	  line-height: 21pt;
+	  page-break-after: avoid;
+	  }
+	  h1.np {
+	  page-break-before: always;
+	  }
+	  h1 a {
+	  color: #333333;
+	  }
+	  h2 {
+	  font-size: 12pt;
+	  line-height: 15pt;
+	  page-break-after: avoid;
+	  }
+	  h3, h4, h5, h6 {
+	  font-size: 10pt;
+	  page-break-after: avoid;
+	  }
+	  h2 a, h3 a, h4 a, h5 a, h6 a {
+	  color: black;
+	  }
+	  img {
+	  margin-left: 3em;
+	  }
+	  li {
+	  margin-left: 2em;
+	  margin-right: 2em;
+	  }
+	  ol {
+	  margin-left: 2em;
+	  margin-right: 2em;
+	  }
+	  ol p {
+	  margin-left: 0em;
+	  }
+	  p {
+	  margin-left: 2em;
+	  margin-right: 2em;
+	  }
+	  pre {
+	  margin-left: 3em;
+	  background-color: lightyellow;
+	  padding: .25em;
+	  }
+	  pre.text2 {
+	  border-style: dotted;
+	  border-width: 1px;
+	  background-color: #f0f0f0;
+	  width: 69em;
+	  }
+	  pre.inline {
+	  background-color: white;
+	  padding: 0em;
+	  }
+	  pre.text {
+	  border-style: dotted;
+	  border-width: 1px;
+	  background-color: #f8f8f8;
+	  width: 69em;
+	  }
+	  pre.drawing {
+	  border-style: solid;
+	  border-width: 1px;
+	  background-color: #f8f8f8;
+	  padding: 2em;
+	  }
+	  table {
+	  margin-left: 2em;
+	  }
+	  table.tt {
+	  vertical-align: top;
+	  }
+	  table.full {
+	  border-style: outset;
+	  border-width: 1px;
+	  }
+	  table.headers {
+	  border-style: outset;
+	  border-width: 1px;
+	  }
+	  table.tt td {
+	  vertical-align: top;
+	  }
+	  table.full td {
+	  border-style: inset;
+	  border-width: 1px;
+	  }
+	  table.tt th {
+	  vertical-align: top;
+	  }
+	  table.full th {
+	  border-style: inset;
+	  border-width: 1px;
+	  }
+	  table.headers th {
+	  border-style: none none inset none;
+	  border-width: 1px;
+	  }
+	  table.left {
+	  margin-right: auto;
+	  }
+	  table.right {
+	  margin-left: auto;
+	  }
+	  table.center {
+	  margin-left: auto;
+	  margin-right: auto;
+	  }
+	  caption {
+	  caption-side: bottom;
+	  font-weight: bold;
+	  font-size: 9pt;
+	  margin-top: .5em;
+	  }
+	
+	  table.header {
+	  border-spacing: 1px;
+	  width: 95%;
+	  font-size: 10pt;
+	  color: white;
+	  }
+	  td.top {
+	  vertical-align: top;
+	  }
+	  td.topnowrap {
+	  vertical-align: top;
+	  white-space: nowrap; 
+	  }
+	  table.header td {
+	  background-color: gray;
+	  width: 50%;
+	  }
+	  table.header a {
+	  color: white;
+	  }
+	  td.reference {
+	  vertical-align: top;
+	  white-space: nowrap;
+	  padding-right: 1em;
+	  }
+	  thead {
+	  display:table-header-group;
+	  }
+	  ul.toc, ul.toc ul {
+	  list-style: none;
+	  margin-left: 1.5em;
+	  margin-right: 0em;
+	  padding-left: 0em;
+	  }
+	  ul.toc li {
+	  line-height: 150%;
+	  font-weight: bold;
+	  font-size: 10pt;
+	  margin-left: 0em;
+	  margin-right: 0em;
+	  }
+	  ul.toc li li {
+	  line-height: normal;
+	  font-weight: normal;
+	  font-size: 9pt;
+	  margin-left: 0em;
+	  margin-right: 0em;
+	  }
+	  li.excluded {
+	  font-size: 0pt;
+	  }
+	  ul p {
+	  margin-left: 0em;
+	  }
+	
+	  .comment {
+	  background-color: yellow;
+	  }
+	  .center {
+	  text-align: center;
+	  }
+	  .error {
+	  color: red;
+	  font-style: italic;
+	  font-weight: bold;
+	  }
+	  .figure {
+	  font-weight: bold;
+	  text-align: center;
+	  font-size: 9pt;
+	  }
+	  .filename {
+	  color: #333333;
+	  font-weight: bold;
+	  font-size: 12pt;
+	  line-height: 21pt;
+	  text-align: center;
+	  }
+	  .fn {
+	  font-weight: bold;
+	  }
+	  .hidden {
+	  display: none;
+	  }
+	  .left {
+	  text-align: left;
+	  }
+	  .right {
+	  text-align: right;
+	  }
+	  .title {
+	  color: #990000;
+	  font-size: 18pt;
+	  line-height: 18pt;
+	  font-weight: bold;
+	  text-align: center;
+	  margin-top: 36pt;
+	  }
+	  .vcardline {
+	  display: block;
+	  }
+	  .warning {
+	  font-size: 14pt;
+	  background-color: yellow;
+	  }
+	
+	
+	  @media print {
+	  .noprint {
+		display: none;
+	  }
+	
+	  a {
+		color: black;
+		text-decoration: none;
+	  }
+	
+	  table.header {
+		width: 90%;
+	  }
+	
+	  td.header {
+		width: 50%;
+		color: black;
+		background-color: white;
+		vertical-align: top;
+		font-size: 12pt;
+	  }
+	
+	  ul.toc a::after {
+		content: leader('.') target-counter(attr(href), page);
+	  }
+	
+	  ul.ind li li a {
+		content: target-counter(attr(href), page);
+	  }
+	
+	  .print2col {
+		column-count: 2;
+		-moz-column-count: 2;
+		column-fill: auto;
+	  }
+	  }
+	
+	  @page {
+	  @top-left {
+		   content: "Internet-Draft"; 
+	  } 
+	  @top-right {
+		   content: "December 2010"; 
+	  } 
+	  @top-center {
+		   content: "Abbreviated Title";
+	  } 
+	  @bottom-left {
+		   content: "Doe"; 
+	  } 
+	  @bottom-center {
+		   content: "Expires June 2011"; 
+	  } 
+	  @bottom-right {
+		   content: "[Page " counter(page) "]"; 
+	  } 
+	  }
+	
+	  @page:first { 
+		@top-left {
+		  content: normal;
+		}
+		@top-right {
+		  content: normal;
+		}
+		@top-center {
+		  content: normal;
+		}
+	  }
+  /*]]>*/
+  </style>
+  <style type="text/css">
+@viewport {
+  zoom: 1.0;
+  width: extend-to-zoom;
+}
+
+@-ms-viewport {
+  width: extend-to-zoom;
+  zoom: 1.0;
+}
+
+body {
+  font: 11pt cambria, helvetica, arial, sans-serif;
+  font-size-adjust: 0.5;
+  line-height: 130%;
+  margin: 1em auto;
+  max-width: 700px;
+}
+
+.title, .filename, h1, h2, h3, h4 {
+  font-family: candara, helvetica, arial, sans-serif;
+  font-size-adjust: 0.5;
+}
+.title { font-size: 150%; }
+h1 { font-size: 130%; }
+h2 { font-size: 120%; }
+h3, h4 { font-size: 110%; }
+ul.toc >li { font-size: 95%; }
+ul.toc >li >ul, .figure, caption { font-size: 90%; }
+
+table {
+  margin-left: 0em;
+}
+table.header {
+  width: 100%;
+}
+
+table.header td {
+  background-color: inherit;
+  color: black;
+}
+
+samp, tt, code, pre {
+  font: 11pt consolas, monospace;
+  font-size-adjust: none;
+}
+
+pre.text, pre.text2 {
+  width: 90%;
+}
+
+dt {
+  float: left; clear: left;
+  margin: 0.5em 0.5em 0 0;
+}
+dt:first-child {
+  margin-top: 0;
+}
+dd {
+  margin: 0.5em 0 0 2em;
+}
+dd p, dd ul {
+  margin-top: 0; margin-bottom: 0;
+}
+dd *+p {
+  margin-top: 0.5em;
+}
+
+ol, ul {
+  padding: 0;
+  margin: 0.5em 0 0.5em 2em;
+}
+ul.toc, ul.toc ul { 
+  margin: 0 0 0 1.5em;
+}
+ul.toc a:first-child { 
+  display: inline-block; 
+  min-width: 1.2em;
+}  </style>
+
+  <link href="#rfc.toc" rel="Contents"/>
+<link href="#rfc.section.1" rel="Chapter" title="1 Introduction"/>
+<link href="#rfc.section.2" rel="Chapter" title="2 Requirements"/>
+<link href="#rfc.section.2.1" rel="Chapter" title="2.1 Requirements for SACM"/>
+<link href="#rfc.section.2.2" rel="Chapter" title="2.2 Requirements for the Architecture"/>
+<link href="#rfc.section.2.3" rel="Chapter" title="2.3 Requirements for the Information Model"/>
+<link href="#rfc.section.2.4" rel="Chapter" title="2.4 Requirements for the Data Model"/>
+<link href="#rfc.section.2.5" rel="Chapter" title="2.5 Requirements for Data Model Operations"/>
+<link href="#rfc.section.2.6" rel="Chapter" title="2.6 Requirements for SACM Transport Protocols"/>
+<link href="#rfc.section.3" rel="Chapter" title="3 Acknowledgements"/>
+<link href="#rfc.section.4" rel="Chapter" title="4 IANA Considerations"/>
+<link href="#rfc.section.5" rel="Chapter" title="5 Security Considerations"/>
+<link href="#rfc.section.5.1" rel="Chapter" title="5.1 Trust between Provider and Requestor"/>
+<link href="#rfc.section.6" rel="Chapter" title="6 Change Log"/>
+<link href="#rfc.section.6.1" rel="Chapter" title="6.1 -05 to -06"/>
+<link href="#rfc.references" rel="Chapter" title="7 References"/>
+<link href="#rfc.references.1" rel="Chapter" title="7.1 Normative References"/>
+<link href="#rfc.references.2" rel="Chapter" title="7.2 Informative References"/>
+<link href="#rfc.authors" rel="Chapter"/>
+
+
+  <meta name="generator" content="xml2rfc version 2.5.0 - http://tools.ietf.org/tools/xml2rfc" />
+  <link rel="schema.dct" href="http://purl.org/dc/terms/" />
+
+  <meta name="dct.creator" content="Cam-Winget, N. and L. Lorenzin" />
+  <meta name="dct.identifier" content="urn:ietf:id:draft-ietf-sacm-requirements-latest" />
+  <meta name="dct.issued" scheme="ISO8601" content="2015-7" />
+  <meta name="dct.abstract" content="This document defines the scope and set of requirements for the Secure Automation and Continuous Monitoring (SACM) architecture, data model and transport protocols.  The requirements and scope are based on the agreed upon use cases.  " />
+  <meta name="description" content="This document defines the scope and set of requirements for the Secure Automation and Continuous Monitoring (SACM) architecture, data model and transport protocols.  The requirements and scope are based on the agreed upon use cases.  " />
+
+</head>
+
+<body>
+
+  <table class="header">
+    <tbody>
+    
+    	<tr>
+  <td class="left">SACM</td>
+  <td class="right">N. Cam-Winget</td>
+</tr>
+<tr>
+  <td class="left">Internet-Draft</td>
+  <td class="right">Cisco Systems</td>
+</tr>
+<tr>
+  <td class="left">Intended status: Informational</td>
+  <td class="right">L. Lorenzin</td>
+</tr>
+<tr>
+  <td class="left">Expires: January 2, 2016</td>
+  <td class="right">Pulse Secure</td>
+</tr>
+<tr>
+  <td class="left"></td>
+  <td class="right">July 2015</td>
+</tr>
+
+    	
+    </tbody>
+  </table>
+
+  <p class="title">Secure Automation and Continuous Monitoring (SACM) Requirements<br />
+  <span class="filename">draft-ietf-sacm-requirements-latest</span></p>
+  
+  <h1 id="rfc.abstract">
+  <a href="#rfc.abstract">Abstract</a>
+</h1>
+<p>This document defines the scope and set of requirements for the Secure Automation and Continuous Monitoring (SACM) architecture, data model and transport protocols.  The requirements and scope are based on the agreed upon use cases.  </p>
+<h1 id="rfc.status">
+  <a href="#rfc.status">Status of This Memo</a>
+</h1>
+<p>This Internet-Draft is submitted in full conformance with the provisions of BCP 78 and BCP 79.</p>
+<p>Internet-Drafts are working documents of the Internet Engineering Task Force (IETF).  Note that other groups may also distribute working documents as Internet-Drafts.  The list of current Internet-Drafts is at http://datatracker.ietf.org/drafts/current/.</p>
+<p>Internet-Drafts are draft documents valid for a maximum of six months and may be updated, replaced, or obsoleted by other documents at any time.  It is inappropriate to use Internet-Drafts as reference material or to cite them other than as "work in progress."</p>
+<p>This Internet-Draft will expire on January 2, 2016.</p>
+<h1 id="rfc.copyrightnotice">
+  <a href="#rfc.copyrightnotice">Copyright Notice</a>
+</h1>
+<p>Copyright (c) 2015 IETF Trust and the persons identified as the document authors.  All rights reserved.</p>
+<p>This document is subject to BCP 78 and the IETF Trust's Legal Provisions Relating to IETF Documents (http://trustee.ietf.org/license-info) in effect on the date of publication of this document.  Please review these documents carefully, as they describe your rights and restrictions with respect to this document.  Code Components extracted from this document must include Simplified BSD License text as described in Section 4.e of the Trust Legal Provisions and are provided without warranty as described in the Simplified BSD License.</p>
+
+  
+  <hr class="noprint" />
+  <h1 class="np" id="rfc.toc"><a href="#rfc.toc">Table of Contents</a></h1>
+  <ul class="toc">
+
+  	<li>1.   <a href="#rfc.section.1">Introduction</a></li>
+<li>2.   <a href="#rfc.section.2">Requirements</a></li>
+<ul><li>2.1.   <a href="#rfc.section.2.1">Requirements for SACM</a></li>
+<li>2.2.   <a href="#rfc.section.2.2">Requirements for the Architecture</a></li>
+<li>2.3.   <a href="#rfc.section.2.3">Requirements for the Information Model</a></li>
+<li>2.4.   <a href="#rfc.section.2.4">Requirements for the Data Model</a></li>
+<li>2.5.   <a href="#rfc.section.2.5">Requirements for Data Model Operations</a></li>
+<li>2.6.   <a href="#rfc.section.2.6">Requirements for SACM Transport Protocols</a></li>
+</ul><li>3.   <a href="#rfc.section.3">Acknowledgements</a></li>
+<li>4.   <a href="#rfc.section.4">IANA Considerations</a></li>
+<li>5.   <a href="#rfc.section.5">Security Considerations</a></li>
+<ul><li>5.1.   <a href="#rfc.section.5.1">Trust between Provider and Requestor</a></li>
+</ul><li>6.   <a href="#rfc.section.6">Change Log</a></li>
+<ul><li>6.1.   <a href="#rfc.section.6.1">-05 to -06</a></li>
+</ul><li>7.   <a href="#rfc.references">References</a></li>
+<ul><li>7.1.   <a href="#rfc.references.1">Normative References</a></li>
+<li>7.2.   <a href="#rfc.references.2">Informative References</a></li>
+</ul><li><a href="#rfc.authors">Authors' Addresses</a></li>
+
+
+  </ul>
+
+  <h1 id="rfc.section.1"><a href="#rfc.section.1">1.</a> Introduction</h1>
+<p id="rfc.section.1.p.1">Today's environment of rapidly-evolving security threats highlights the need to automate the sharing of such information while protecting user information as well as the systems that store, process, and transmit this information.  Security threats can be detected in a number of ways. SACM's charter focuses on how to collect and share this information based on use cases that involve posture assessment of endpoints.  </p>
+<p id="rfc.section.1.p.2">Scalable and sustainable collection, expression, and evaluation of endpoint information is foundational to SACM's objectives.  To secure and defend a network, one must reliably determine what devices are on the network, how those devices are configured from a hardware perspective, what software products are installed on those devices, and how those products are configured.  We need to be able to determine, share, and use this information in a secure, timely, consistent, and automated manner to perform endpoint posture assessments.</p>
+<p id="rfc.section.1.p.3">This document focuses on describing the requirements for facilitating the exchange of posture assessment information in the enterprise, in particular, for the use cases as exemplified in <a href="#I-D.ietf-sacm-use-cases">[I-D.ietf-sacm-use-cases]</a>. Also, this document uses terminology defined in <a href="#I-D.ietf-sacm-terminology">[I-D.ietf-sacm-terminology]</a>.</p>
+<h1 id="rfc.section.2"><a href="#rfc.section.2">2.</a> <a href="#reqmts" id="reqmts">Requirements</a></h1>
+<p id="rfc.section.2.p.1">This document defines requirements based on the SACM use cases defined in <a href="#I-D.ietf-sacm-use-cases">[I-D.ietf-sacm-use-cases]</a>.  This section describes the requirements used by SACM to assess and compare candidate data models, interfaces, and protocols, to suit the SACM architecture.  These requirements express characteristics or features that a candidate protocol or data model must be capable of offering to ensure security and interoperability.</p>
+<p id="rfc.section.2.p.2">Multiple data models, protocols, and transports may be employed in a SACM environment. A SACM transport protocol is one that runs on top of L3 protocols such as TCP/IP or L4 protocols such as HTTP, carries operations (requests / responses), and moves data. </p>
+<p id="rfc.section.2.p.3">SACM defines an architecture and information model focused on addressing the needs for determining, sharing, and using posture information via Posture Information Providers and Posture Information Consumers mediated by a Controller.  With the information model defining assets and attributes to facilitate the guidance, collection, and assessment of posture, these are some of the tasks that should be considered: </p>
+<p/>
+
+<ol>
+  <li>Asset Classification: Map the assets on the target endpoints to asset classes.  This enables identification of the attributes needed to exchange information pertaining to the target endpoint. </li>
+  <li>Attribute Definition: Define the attributes desired to be collected from each target endpoint.  This is what we want to know about a target endpoint. For instance, organizations will want to know what software is installed and its many critical security attributes such as patch level. </li>
+  <li>Policy Definition: This is where an organization can express its policy for acceptable or problematic values of an endpoint attribute. The expected values of an endpoint attribute are determined for later comparison against the actual endpoint attribute values during the evaluation process. Expected values may include both those values which are good as well as those values which represent problems, such as vulnerabilities. The organization can also specify the endpoint attributes that are to be present for a given target endpoint.</li>
+  <li>Information Collection: Collect information (attribute values) from the target endpoint to populate the endpoint data.</li>
+  <li>Endpoint Assessment: Evaluate the actual values of the endpoint attributes against those expressed in the policy. (An evaluation result may become additional endpoint data).</li>
+  <li>Result Reporting: Report the results of the evaluation for use by other components. Examples of use of a report would be additional evaluation, network enforcement, vulnerability detection, and license management.</li>
+</ol>
+<h1 id="rfc.section.2.1"><a href="#rfc.section.2.1">2.1.</a> <a href="#general" id="general">Requirements for SACM</a></h1>
+<p id="rfc.section.2.1.p.1">Many deployment scenarios can be instantiated to address the above tasks and use cases defined in <a href="#I-D.ietf-sacm-use-cases">[I-D.ietf-sacm-use-cases]</a>. To ensure interoperability, scalability, and flexibility in any of these deployments, the following requirements are defined for proposed SACM standards:</p>
+<p/>
+
+<dl>
+  <dt>G-001</dt>
+  <dd style="margin-left: 1">Solution Extensibility: The information model, data models, protocols, and transports defined by SACM MUST be designed to allow support for future extensions, including both standard and proprietary transport protocols and data models. </dd>
+  <dt></dt>
+  <dd style="margin-left: 1">
+    <ol>
+      <li>The information model and interfaces MUST support the ability to add new operations while maintaining backwards compatibility. SACM-defined transport protocols MUST have extensibility to allow them to transport operations that are defined in the future.</li>
+      <li>The query language MUST allow for general inquiries, as well as expression of specific attributes or relationships between attributes to follow; the retrieval of specific information based on an event, or on a continuous basis; and the ability to retrieve specific pieces of information, specific types or classes of information, or the entirety of available information.</li>
+      <li>The information model MUST accommodate the interoperable addition of new data types and/or schemas.</li>
+    </ol>
+  </dd>
+  <dt>G-002</dt>
+  <dd style="margin-left: 1">Interoperability: The data models, protocols, and transports must be specified with enough details to ensure interoperability. </dd>
+  <dt>G-003</dt>
+  <dd style="margin-left: 1">Scalability: SACM needs to support a broad set of deployment scenarios. The data models, protocols, and transports MUST be scalable unless they are specifically defined to apply to a special-purpose scenario, such as constrained devices.  A SACM transport protocol standard SHOULD include a section on scalability considerations that addresses the number of endpoints and amount of information to which it can reasonably be expected to scale. Scalability must be addressed to support:</dd>
+  <dt></dt>
+  <dd style="margin-left: 1">
+    <ul>
+      <li>Large datagrams: It is possible that the size of posture assessment information can vary from a single assessment that is small in size to a very large datagram or a very large set of assessments (up to multiple gigabytes in size). </li>
+      <li>Large number of providers and consumers: A deployment may consist of a very large number of endpoints requesting and/or producing posture assessment information. </li>
+      <li>Large number of target endpoints: A deployment may be managing information of a very large number of target endpoints. </li>
+    </ul>
+    <p> </p>
+  </dd>
+  <dt>G-004</dt>
+  <dd style="margin-left: 1">Agility: The data model, protocols, and transports MUST be suitably specified to enable implementations to fit into different deployment models and scenarios, including considerations for implementations of data models and transports operating in constrained environments.</dd>
+  <dt>G-005</dt>
+  <dd style="margin-left: 1">Information Extensibility: Non-standard (implementation-specific) attributes MUST be supported. A method SHOULD be defined for preventing collisions from occurring in the naming of all attributes independent of their source. For interoperability and scope boundary, the information model MUST define the mandatory set of attributes. The set of attributes defined by the information model MUST be well defined.</dd>
+  <dt>G-006</dt>
+  <dd style="margin-left: 1">Data Integrity: To protect the information being shared, SACM components MUST protect the integrity and confidentiality of data in transit (while information is being transferred between providers and consumers, and through proxies and/or repositories) and data at rest (for information stored on repositories and on providers / consumers).  Mechanisms for this protection are unspecified but should include industry best practices such as encrypted storage, encrypted transports, data checksums, etc.  These mechanisms are required to be available (i.e. all data-handling components must support them), but are not required to be used in all cases. </dd>
+  <dt>G-007</dt>
+  <dd style="margin-left: 1">Data Partitioning: A method for partitioning data MUST be supported to accommodate considerations such as geographic, regulatory, operational requirements, overlay boundaries, and federation (where the data may be collected in multiple locations and either centralized or kept in the local region). Where replication of data is supported, it is required that methods exist to prevent update loops.</dd>
+  <dt>G-008</dt>
+  <dd style="margin-left: 1">Versioning and Backward Compatibility: Announcement and negotiation of versions, inclusive of existing capabilities (such as transport protocols, data models, specific attributes within data models, standard attribute expression sets, etc.) MUST be supported.  Negotiation for both versioning and capability is needed to accommodate future growth and ecosystems with mixed capabilities. </dd>
+  <dt>G-009</dt>
+  <dd style="margin-left: 1">Information Discovery: There MUST be mechanisms for components to discover what information is available across the ecosystem (i.e. a method for cataloging data available in the ecosystem and advertising it to consumers), where to go to get a specific piece of that information (i.e. which provider has the information), and what schemas are in use for organizing the information. For example, providing a method by which a node can locate the advertised information so that consumers are not required to have a priori knowledge to find available information. </dd>
+  <dt>G-010</dt>
+  <dd style="margin-left: 1">Target Endpoint Discovery: SACM MUST define the means by which target endpoints may be discovered.  Use Case 2.1.2 describes the need to discover endpoints and their composition. </dd>
+  <dt>G-011</dt>
+  <dd style="margin-left: 1">Push and Pull Access: Three methods of data access MUST be supported: the standard Pull model as well as solicited and unsolicited Push models. All of the methods of data access MUST support the ability for the initiator to filter the set of posture assessment information to be delivered. Additionally, the provider of the information MUST be able to filter the set of posture assessment information based on the permissions of the recipient. This requirement is driven by use cases 2.1.3, 2.1.4 and 2.1.5.</dd>
+  <dt>G-012</dt>
+  <dd style="margin-left: 1">Device Interface: The interfaces by which SACM components communicate to share endpoint posture information MUST be well defined. That is, the interface defines the data model, SACM transport protocols, and network transport protocols to enable SACM components to communicate. [Revised per our 6/29 conversation - does this work? -LL] </dd>
+  <dt>G-013</dt>
+  <dd style="margin-left: 1">Endpoint Location and Network Topology: The SACM architecture and interfaces MUST allow for the target endpoint (network) location and network topology to be modeled and understood.  Where appropriate, the data model and the interfaces SHOULD allow for discovery of the target endpoint location or network topology or both. </dd>
+  <dt>G-014</dt>
+  <dd style="margin-left: 1">Target Endpoint Identity: The SACM architecture and interfaces MUST support the ability of components to provide attributes that can be used to compose an identity for a target endpoint. These identities MAY be composed of attributes from one or more SACM components.</dd>
+  <dt>G-015</dt>
+  <dd style="margin-left: 1">Data Access Control: Methods of access control MUST be supported to accommodate considerations such as geographic, regulatory, operational and federations. Entities accessing or publishing data MUST identify themselves and pass access policy.</dd>
+</dl>
+
+<p> </p>
+<h1 id="rfc.section.2.2"><a href="#rfc.section.2.2">2.2.</a> <a href="#arch" id="arch">Requirements for the Architecture</a></h1>
+<p id="rfc.section.2.2.p.1">At the simplest abstraction, the SACM architecture represents the core components and interfaces needed to perform the production and consumption of posture assessment information. Requirements relating to SACM's architecture include:</p>
+<p/>
+
+<dl>
+  <dt>ARCH-001</dt>
+  <dd style="margin-left: 1">Scalability: The architectural components MUST account for a range of deployments, from very small sets of endpoints to very large deployments.  </dd>
+  <dt>ARCH-002</dt>
+  <dd style="margin-left: 1">Flexibility: The architectural components MUST account for different deployment scenarios where the architectural components may be implemented, deployed, or used within a single application, service, or network, or may comprise a federated system. </dd>
+  <dt>ARCH-003</dt>
+  <dd style="margin-left: 1">Separation of Data and Management Functions: SACM MUST define both the configuration and management of the SACM data models and protocols used to transport and share posture assessment information.</dd>
+  <dt>ARCH-004</dt>
+  <dd style="margin-left: 1">Topology Flexibility: Both centralized and decentralized (peer-to-peer) information exchange MUST be supported.  Centralized data exchange enables use of a common data format to bridge together data exchange between diverse systems, and can leverage a virtual data store that centralizes and offloads all data access, storage, and maintenance to a dedicated resource. Decentralized data exchange enables simplicity of sharing data between relatively uniform systems, and between small numbers of systems, especially within a single enterprise domain. The fact that a centralized or decentralized deployment is used SHOULD be invisible to a consumer.</dd>
+  <dt>ARCH-005</dt>
+  <dd style="margin-left: 1">Capability Negotiation: Announcement and negotiation of functional capabilities (such as authentication protocols, authorization schemes, data models, transport protocols, etc.) must be supported, enabling a SACM component to make inquiries about the capabilities of other components in the SACM ecosystem.</dd>
+  <dt>ARCH-006</dt>
+  <dd style="margin-left: 1">Role-based Authorization: The SACM architecture MUST be capable of effecting role-based authorization. Distinction of endpoints capable of and authorized to provide or consume information is required to address appropriate access controls.</dd>
+  <dt>ARCH-007</dt>
+  <dd style="margin-left: 1">Context-based Authorization: The SACM architecture MUST be capable of effecting context-based authorization.  Different policies (e.g. business, regulatory, etc.) might specify what data may be exposed to, or shared by, consumers based on one or more attributes of the consumer. The policy might specify that consumers are required to share specific information either back to the system or to administrators. </dd>
+  <dt>ARCH-008</dt>
+  <dd style="margin-left: 1">Time Synchronization: Actions or decisions based on time-sensitive data (such as user logon/logoff, endpoint connection/disconnection, endpoint behavior events, etc.) are all predicated on a synchronized understanding of time. The SACM architecture MUST provide a mechanism for all components to synchronize time. A mechanism for detecting and reporting time discrepancies SHOULD be provided by the architecture and reflected in the information model. </dd>
+</dl>
+<h1 id="rfc.section.2.3"><a href="#rfc.section.2.3">2.3.</a> <a href="#info_model" id="info_model">Requirements for the Information Model</a></h1>
+<p id="rfc.section.2.3.p.1">The SACM information model represents the abstracted representation for Posture Assessment information to be communicated.  SACM data models must adhere to and comply with the SACM information model. The requirements for the SACM information model include: </p>
+<p/>
+
+<dl>
+  <dt>IM-001</dt>
+  <dd style="margin-left: 1">Extensible Attribute Vocabulary: the information model MUST define a minimum set of attributes for communicating Posture Information, to ensure interoperability between data models. (Individual data models may define attributes beyond the mandatory-to-implement minimum set.) The attributes should be defined with a clear mechanism for extensibility to enable data models to adhere to SACM's required attributes as well as allow for their own extensions. The attribute vocabulary should be defined with a clear mechanism for extensibility to enable future versions of the information model to be interoperably expanded with new attributes.</dd>
+  <dt>IM-002</dt>
+  <dd style="margin-left: 1">Posture Data Publication: The information model MUST allow for the data to be provided by a SACM component either solicited or unsolicited. No aspect of the information model should be dependent upon or assume a push (unsolicited) or pull (solicited) model of publication. </dd>
+  <dt>IM-003</dt>
+  <dd style="margin-left: 1">Data Model Negotiation: SACM's information model MUST allow support for different data models, data model versions, and different versions of the operations (and network layer transport). The SACM information model MUST include the ability to discover and negotiate the use of a particular data model or any data model. </dd>
+  <dt>IM-004</dt>
+  <dd style="margin-left: 1">Data Model Identification: The information model MUST provide a means to uniquely identify each data model uniquely. The identifier MUST contain both an identifier of the data model and a version indicator for the data model. The identifiers SHOULD be decomposable so that a customer can query for any version of a specific data model and compare returned values for older or newer than a desired version.</dd>
+  <dt>IM-005</dt>
+  <dd style="margin-left: 1">Data Lifetime Management: The information model MUST provide a means to allow data models to include data lifetime management. The information model must identify attributes that can allow data models to, at minimum, identify the data's origination time and expected time of next update or data longevity (how long should the data be assumed to still be valid).</dd>
+  <dt>IM-006</dt>
+  <dd style="margin-left: 1">Singularity and Modularity: The SACM information model MUST be singular (i.e. there is only one information model, not multiple alternative information models from which to choose) and MAY be modular (a conjunction of several sub-components) for ease of maintenance and extension. For example, endpoint identification could be an independent sub-component of the information model, to simplify updating of endpoint identification attributes.</dd>
+</dl>
+<h1 id="rfc.section.2.4"><a href="#rfc.section.2.4">2.4.</a> <a href="#data_model" id="data_model">Requirements for the Data Model</a></h1>
+<p id="rfc.section.2.4.p.1">The SACM information model represents an abstraction for "what" information can be communicated and "how" it is to be represented and shared. It is expected that as applications may produce posture assessment information, they may share it using a specific data model.  Similarly, applications consuming or requesting posture assessment information, may require it be based on a specific data model.  Thus, while there may exist different data models and schemas, they should adhere to the SACM information model and meet the requirements defined in this section. </p>
+<p id="rfc.section.2.4.p.2">The specific requirements for candidate data models include: </p>
+<p/>
+
+<dl>
+  <dt>DM-001</dt>
+  <dd style="margin-left: 1">Element Association: The data model MUST contain a data model element for each information model element (e.g. endpoint, IP address, asset). In other words, for every item in the information model, there must be an item in the data model. The data model can also include elements that do not exist in the information model.</dd>
+  <dt>DM-002</dt>
+  <dd style="margin-left: 1">Data Model Structure: The data model can be structured either as one single module or separated into modules and sub-modules that allow for references between them. The data model structure MAY reflect structure in the information model, but does not need to. For example, the data model might use one module to define endpoints, and that module might reference other modules that describe the various assets associated with the endpoint. Constraints and interfaces might further be defined to resolve or tolerate ambiguity in the references (e.g. same IP address used in two separate networks).</dd>
+  <dt>DM-003</dt>
+  <dd style="margin-left: 1">Search Flexibility: The search interfaces and actions MUST include the ability to start a search anywhere within a data model structure, and the ability to search based on patterns ("wildcard searches") as well as specific data elements.</dd>
+  <dt>DM-004</dt>
+  <dd style="margin-left: 1">Full Vs. Partial Updates: The data model SHOULD include the ability to allow providers of data to provide the data as a whole, or when updates occur.  For example, a consumer can request a full update on initial engagement, then request to receive deltas (updates containing only the changes since the last update) on an ongoing basis as new data is generated. </dd>
+  <dt>DM-005</dt>
+  <dd style="margin-left: 1">Loose Coupling: The data model SHOULD allow for a loose coupling between the provider and the consumer, such that the consumer can request information without being required to request it from a specific provider, and a provider can publish information without having a specific consumer targeted to receive it.</dd>
+  <dt>DM-006</dt>
+  <dd style="margin-left: 1">Provider Identification: The interfaces and actions in the data model MUST include the ability to identify data from a specific provider. For example, a SACM consumer should be able to request all data to come from a specific provider (e.g. Provider A) as there can be a larger set of providers. </dd>
+  <dt>DM-007</dt>
+  <dd style="margin-left: 1">Data Cardinality: The data model MUST describe their constraints (e.g. cardinality). As posture information and the tasks for collection, aggregation, or evaluation, could comprise one or more attributes, interfaces and actions MUST allow and account for such cardinality as well as whether the attributes are conditional, optional, or mandatory.</dd>
+  <dt>DM-008</dt>
+  <dd style="margin-left: 1">Data Model Negotiation: The interfaces and actions in the data model MUST include capability negotiation to enable discovery of supported and available data types and schemas.</dd>
+  <dt>DM-009</dt>
+  <dd style="margin-left: 1">Data Origin: The data model MUST include the ability for consumers to identify the data origin (provider that collected the data).</dd>
+  <dt>DM-010</dt>
+  <dd style="margin-left: 1">Origination Time: The data model SHOULD allow the provider to include the information's origination time. </dd>
+  <dt>DM-011</dt>
+  <dd style="margin-left: 1">Data Generation: The data model MUST allow the provider to include attributes defining how the data was generated (e.g. self-reported, reported by aggregator, scan result, etc.). </dd>
+  <dt>DM-012</dt>
+  <dd style="margin-left: 1">Data Source: The data model MUST allow the provider to include attributes defining the data source (target endpoint from which the data was collected) - e.g. hostname, domain (DNS) name or application name.</dd>
+  <dt>DM-013</dt>
+  <dd style="margin-left: 1">Data Updates: The data model SHOULD allow the provider to include attributes defining whether the information provided is a delta, partial, or full set of information.</dd>
+  <dt>DM-014</dt>
+  <dd style="margin-left: 1">Multiple Collectors: The data model MUST support the collection of attributes by a variety of collectors, including internal collectors, external collectors with an authenticated relationship with the endpoint, and external collectors based on network and other observers.</dd>
+  <dt>DM-015</dt>
+  <dd style="margin-left: 1">Attribute Extensibility: Use Cases in the whole of Section 2 describe the need for an attribute dictionary. With SACM's scope focused on posture assessment, the data model attribute collection and aggregation MUST have a well-understood set of attributes inclusive of their meaning or usage intent. The data model MUST include all attributes defined in the information model and MAY include additional attributes beyond those found in the information model. Additional attributes MUST be defined in accordance with the extensibility framework provided in the information model.</dd>
+  <dt>DM-016</dt>
+  <dd style="margin-left: 1">Solicited vs. Unsolicited Updates: The data model MUST enable a provider to publish data either solicited (in response to a request from a consumer) or unsolicited (as new data is generated, without a request required). For example, an external collector can publish data in response to a request by a consumer for information about an endpoint, or can publish data as it observes new information about an endpoint, without any specific consumer request triggering the publication; a compliance-server provider may publish endpoint posture information in response to a request from a consumer (solicited), or it may publish posture information driven by a change in the posture of the endpoint (unsolicited).</dd>
+  <dt>DM-017</dt>
+  <dd style="margin-left: 1">Transport Agnostic: The data model MUST be transport agnostic, to allow for the data operations to leverage the most appropriate SACM transport protocol.</dd>
+</dl>
+
+<p> </p>
+<h1 id="rfc.section.2.5"><a href="#rfc.section.2.5">2.5.</a> <a href="#dm-ops" id="dm-ops">Requirements for Data Model Operations</a></h1>
+<p id="rfc.section.2.5.p.1">Posture information data adhering to a data model must also provide interfaces that include operations for access and production of the data. Operations requirements are distinct from transport requirements in that operations requirements are requirements on the application performing requests and responses, whereas transport requirements are requirements on the transport protocol carrying the requests / responses.  The specific requirements for such operations include: </p>
+<p/>
+
+<dl>
+  <dt>OP-001</dt>
+  <dd style="margin-left: 1">Time Synchronization: Request and response operations MUST be timestamped, and published information SHOULD capture time of publication. Actions or decisions based on time-sensitive data (such as user logon/logoff, endpoint connection/disconnection, endpoint behavior events, etc.) are all predicated on a synchronized understanding of time. A method for detecting and reporting time discrepancies SHOULD be provided.</dd>
+  <dt>OP-002</dt>
+  <dd style="margin-left: 1">Collection Abstraction: Collection is the act of a SACM component gathering data from a target endpoint. The request for a data item MUST include enough information to properly identify the item to collect, but the request shall not be a command to directly execute nor directly be applied as arguments to a command. The purpose of this requirement is primarily to reduce the potential attack vectors, but has the additional benefit of abstracting the request for collection from the collection method, thereby allowing more flexibility in how collection is implemented.</dd>
+  <dt>OP-003</dt>
+  <dd style="margin-left: 1">Collection Composition: A collection request MAY be composed of multiple collection requests (which yield collected values). The desire for multiple values MUST be expressed as part of the collection request, so that the aggregation can be resolved at the point of collection without having to interact with the requestor. This requirement SHOULD NOT be interpreted as preventing a collector from providing attributes which were not part of the original request. </dd>
+  <dt>OP-004</dt>
+  <dd style="margin-left: 1">Attribute-based Query: A query operation is the act of requesting data from a provider. Query operations SHOULD be based on a set of attributes. Query operations MUST support both a query for specific attributes and a query for all attributes. Use Case 2.1.2 describes the need for the data model to support a query operation based on a set of attributes to facilitate collection of information such as posture assessment, inventory (of endpoints or endpoint components), and configuration checklist.</dd>
+  <dt>OP-005</dt>
+  <dd style="margin-left: 1">Information-based Query with Filtering: The query operation MUST support filtering. Use Case 2.1.3 describes the need for the data model to support the means for the information to be collected through a query mechanism. Furthermore, the query operation requires filtering capabilities to allow for only a subset of information to be retrieved. The query operation MAY be a synchronous request or asynchronous request.</dd>
+  <dt>OP-006</dt>
+  <dd style="margin-left: 1">Data Model Scalability: The operation resulting from a query operation MUST be able to handle the return and receipt of large amounts of data. Use Cases 2.1.4 and 2.1.5 describes the need for the data model to support scalability. For example, the query operation may result in a very large set of attributes, as well as a large set of targets.</dd>
+  <dt>OP-007</dt>
+  <dd style="margin-left: 1">Data Abstraction: The data model MUST allow a SACM component to communicate what data was used to construct the target endpoint's identity, so other SACM components can determine whether they are constructing an equivalent target endpoint (and their identity) and whether they have confidence in that identity. SACM components SHOULD have interfaces defined to transmit this data directly or to refer to where the information can be retrieved.</dd>
+</dl>
+<h1 id="rfc.section.2.6"><a href="#rfc.section.2.6">2.6.</a> <a href="#xport" id="xport">Requirements for SACM Transport Protocols</a></h1>
+<p id="rfc.section.2.6.p.1">The term transport protocol is frequently overloaded. The term SACM transport protocol is intended to be distinguished from underlying layer 3 and 4 protocols such as TCP/IP and TLS. However, it is possible that a layer 3 or 4 protocol may be used as a SACM transport protocol, either alone or as part of a SACM transport protocol (i.e. using HTTP over TLS with XML as the content). The SACM transport protocol is focused on moving data and performing necessary access control operations; it is agnostic to the data model operations.</p>
+<p id="rfc.section.2.6.p.2">The requirements for SACM transport protocols include: </p>
+<p/>
+
+<dl>
+  <dt>T-001</dt>
+  <dd style="margin-left: 1">Multiple Transport Protocol Support: SACM transport protocols MUST support different network transport protocols in a deployment to support different transport layer requirements, different device capabilities, and system configurations dealing with connectivity.</dd>
+  <dt>T-002</dt>
+  <dd style="margin-left: 1">Data Integrity: SACM transport protocols MUST be able to ensure data integrity for data in transit.</dd>
+  <dt>T-003</dt>
+  <dd style="margin-left: 1">Data Confidentiality: SACM transport protocols MUST be able to support data confidentiality. SACM transport protocols MUST ensure data protection for data in transit (e.g. by encryption) to provide confidentiality, integrity, and robustness against protocol-based attacks. Note that while the transport MUST be able to support data confidentiality, implementations MAY choose to make confidentiality optional. Protection for data at rest is not in scope for transport protocols. Data protection MAY be used for both privacy and non-privacy scenarios. </dd>
+  <dt>T-004</dt>
+  <dd style="margin-left: 1">Transport Protection: SACM transport protocols MUST be capable of supporting mutual authentication and replay protection. </dd>
+  <dt>T-005</dt>
+  <dd style="margin-left: 1">Transport Reliability: SACM transport protocols MUST provide reliable delivery of data.  This includes the ability to perform fragmentation and reassembly, and to detect replays.</dd>
+  <dt>T-006</dt>
+  <dd style="margin-left: 1">Transport Layer Requirements: Each SACM transport protocol MUST clearly specify the transport layer requirements it needs to operate correctly. Examples of items that may need to be specified include connectivity requirements, replay requirements, data link encryption requirements, and/or channel binding requirements. These requirements are needed in order for deployments to be done correctly. For example, a proxy server between UDP and TCP can provide a connection that correctly fulfills the connectivity and replay requirements as well as data link requirements (through the use of TLS and DTLS) but would be unable to provide a channel binding requirement, as that implies there is no MITM to look at the data.</dd>
+</dl>
+<h1 id="rfc.section.3"><a href="#rfc.section.3">3.</a> <a href="#Acknowledgements" id="Acknowledgements">Acknowledgements</a></h1>
+<p id="rfc.section.3.p.1">The authors would like to thank Barbara Fraser, Jim Bieda, and Adam Montville for reviewing and contributing to this draft. In addition, we recognize valuable comments and suggestions made by Jim Schaad and Chris Inacio.</p>
+<h1 id="rfc.section.4"><a href="#rfc.section.4">4.</a> <a href="#IANA" id="IANA">IANA Considerations</a></h1>
+<p id="rfc.section.4.p.1">This memo includes no request to IANA.</p>
+<h1 id="rfc.section.5"><a href="#rfc.section.5">5.</a> <a href="#Security" id="Security">Security Considerations</a></h1>
+<p id="rfc.section.5.p.1">This document defines the requirements for SACM.  As such, it is expected that several data models, protocols, and transports may be defined or reused from already existing standards.  This section will highlight security considerations that may apply to SACM based on the architecture and standards applied in SACM. In particular, highlights to security considerations that may apply to the SACM reference architecture and standard data models and transports will be discussed.</p>
+<p id="rfc.section.5.p.2">To address security and privacy considerations, the data model, protocols, and transports must consider authorization based on consumer function and privileges, to only allow authorized consumers and providers to access specific information being requested or published.</p>
+<p id="rfc.section.5.p.3">To enable federation across multiple entities (such as across organizational or geographic boundaries) authorization must also extend to infrastructure elements themselves, such as central controllers / brokers / data repositories.</p>
+<p id="rfc.section.5.p.4">In addition, authorization needs to extend to specific information or resources available in the environment. In other words, authorization is based on the subject (the information requestor), the provider (the information responder), the object (the endpoint the information is being requested on), and the attribute (what piece of data is being requested). The method by which this authorization is applied is unspecified.</p>
+<p id="rfc.section.5.p.5">SACM's charter focuses on the sharing of posture information for improving efficacy of security applications such as compliance, configuration, assurance and other threat and vulnerability reporting and remediation systems.  While the goal is to facilitate the flow of information securely, it is important to note that participating endpoints may not be cooperative or trustworthy.</p>
+<h1 id="rfc.section.5.1"><a href="#rfc.section.5.1">5.1.</a> <a href="#Trust" id="Trust">Trust between Provider and Requestor</a></h1>
+<p id="rfc.section.5.1.p.1">The information given from the provider to a requestor may come with different levels of trustworthiness given the different potential deployment scenarios and compromise either at the provider, the requesting consumer, or devices that are involved in the transport between the provider and requestor.  This section will describe the different considerations that may reduce the level of trustworthiness of the information provided.</p>
+<p id="rfc.section.5.1.p.2">In the information transport flow, it is possible that some of the devices may serve as proxies or brokers and as such, may be able to observe the communications flowing between an information provider and requestor. Without appropriate protections, it is possible for these proxies and brokers to inject and affect man-in-the-middle attacks.</p>
+<p id="rfc.section.5.1.p.3">It is common to, in general, distrust the network service provider, unless the full hop by hop communications process flow is well understood.  As such, the posture information provider should protect the posture information data it provides as well as the transport it uses. Similarly, while there may be providers whose goal is to openly share its information, there may also be providers whose policy is to grant access to certain posture information based on its business or regulatory policy.  In those situations, a provider may require full authentication and authorization of the requestor (or set of requestors) and share only the authorized information to the authenticated and authorized requestors.</p>
+<p id="rfc.section.5.1.p.4">A requestor beyond distrusting the network service provider, must also account that the information received from the provider may have been communicated through an undetermined network communications system.  That is, the posture information may have traversed through many devices before reaching the requestor.  SACM specifications should provide the means for verifying data origin and data integrity and at minimum, provide endpoint authentication and transport integrity.</p>
+<p id="rfc.section.5.1.p.5">A requestor may require data freshness indications, both knowledge of data origination as well as time of publication so that it can make more informed decisions about the relevance of the data based on its currency and/or age. </p>
+<p id="rfc.section.5.1.p.6">It is also important to note that endpoint assessment reports, especially as they may be provided by the target endpoint may pose untrustworthy information.  The considerations for this is described in Section 8 of <a href="#RFC5209">[RFC5209]</a>. </p>
+<p id="rfc.section.5.1.p.7">The trustworthiness of the posture information given by the provider to one or many requestors is dependent on several considerations.  Some of these include the requestor requiring: </p>
+<p/>
+
+<ul>
+  <li>Full disclosure of the network topology path to the provider(s).</li>
+  <li>Direct (peer to peer) communication with the provider.</li>
+  <li>Authentication and authorization of the provider.</li>
+  <li>Either or both confidentiality and integrity at the transport layer. </li>
+  <li>Either or both confidentiality and integrity at the data layer.</li>
+</ul>
+
+<p> </p>
+<h1 id="rfc.section.6"><a href="#rfc.section.6">6.</a> <a href="#ChangeLog" id="ChangeLog">Change Log</a></h1>
+<h1 id="rfc.section.6.1"><a href="#rfc.section.6.1">6.1.</a> <a href="#latest" id="latest">-05 to -06</a></h1>
+<p id="rfc.section.6.1.p.1">Updated G-005 to clarify the MUST to allow non-standard extensions, SHOULD avoid collisions and ensure interoperability.</p>
+<p id="rfc.section.6.1.p.2">Cleaned up and clarified IM-003, DM-001.</p>
+<p id="rfc.section.6.1.p.3">Cleaned up some of the OP-XXX and ARCH-XXX per Jim Schaad's comments.</p>
+<p id="rfc.section.6.1.p.4">Updated some of the text around Editor notes and removed all 'Editor Note' comments</p>
+<h1 id="rfc.references"><a href="#rfc.references">7.</a> References</h1>
+<h1 id="rfc.references.1"><a href="#rfc.references.1">7.1.</a> Normative References</h1>
+<table>
+  <tbody>
+    <tr>
+      <td class="reference">
+        <b id="I-D.ietf-sacm-terminology">[I-D.ietf-sacm-terminology]</b>
+      </td>
+      <td class="top"><a>Birkholz, H.</a>, "<a href="http://tools.ietf.org/html/draft-ietf-sacm-terminology-07">Secure Automation and Continuous Monitoring (SACM) Terminology</a>", Internet-Draft draft-ietf-sacm-terminology-07, July 2015.</td>
+    </tr>
+    <tr>
+      <td class="reference">
+        <b id="I-D.ietf-sacm-use-cases">[I-D.ietf-sacm-use-cases]</b>
+      </td>
+      <td class="top"><a>Waltermire, D.</a> and <a>D. Harrington</a>, "<a href="http://tools.ietf.org/html/draft-ietf-sacm-use-cases-10">Endpoint Security Posture Assessment - Enterprise Use Cases</a>", Internet-Draft draft-ietf-sacm-use-cases-10, July 2015.</td>
+    </tr>
+    <tr>
+      <td class="reference">
+        <b id="RFC2119">[RFC2119]</b>
+      </td>
+      <td class="top"><a>Bradner, S.</a>, "<a href="http://tools.ietf.org/html/rfc2119">Key words for use in RFCs to Indicate Requirement Levels</a>", BCP 14, RFC 2119, DOI 10.17487/RFC2119, March 1997.</td>
+    </tr>
+    <tr>
+      <td class="reference">
+        <b id="RFC5209">[RFC5209]</b>
+      </td>
+      <td class="top"><a>Sangster, P.</a>, <a>Khosravi, H.</a>, <a>Mani, M.</a>, <a>Narayan, K.</a> and <a>J. Tardo</a>, "<a href="http://tools.ietf.org/html/rfc5209">Network Endpoint Assessment (NEA): Overview and Requirements</a>", RFC 5209, DOI 10.17487/RFC5209, June 2008.</td>
+    </tr>
+  </tbody>
+</table>
+<h1 id="rfc.references.2"><a href="#rfc.references.2">7.2.</a> Informative References</h1>
+<table>
+  <tbody>
+    <tr>
+      <td class="reference">
+        <b id="RFC3444">[RFC3444]</b>
+      </td>
+      <td class="top"><a>Pras, A.</a> and <a>J. Schoenwaelder</a>, "<a href="http://tools.ietf.org/html/rfc3444">On the Difference between Information Models and Data Models</a>", RFC 3444, DOI 10.17487/RFC3444, January 2003.</td>
+    </tr>
+  </tbody>
+</table>
+<h1 id="rfc.authors">
+  <a href="#rfc.authors">Authors' Addresses</a>
+</h1>
+<div class="avoidbreak">
+  <address class="vcard">
+	<span class="vcardline">
+	  <span class="fn">Nancy Cam-Winget</span> 
+	  <span class="n hidden">
+		<span class="family-name">Cam-Winget</span>
+	  </span>
+	</span>
+	<span class="org vcardline">Cisco Systems</span>
+	<span class="adr">
+	  <span class="vcardline">3550 Cisco Way</span>
+
+	  <span class="vcardline">
+		<span class="locality">San Jose</span>,  
+		<span class="region">CA</span> 
+		<span class="code">95134</span>
+	  </span>
+	  <span class="country-name vcardline">US</span>
+	</span>
+	<span class="vcardline">EMail: <a href="mailto:ncamwing@cisco.com">ncamwing@cisco.com</a></span>
+
+  </address>
+</div><div class="avoidbreak">
+  <address class="vcard">
+	<span class="vcardline">
+	  <span class="fn">Lisa Lorenzin</span> 
+	  <span class="n hidden">
+		<span class="family-name">Lorenzin</span>
+	  </span>
+	</span>
+	<span class="org vcardline">Pulse Secure</span>
+	<span class="adr">
+	  <span class="vcardline">2700 Zanker Rd., Suite 200</span>
+
+	  <span class="vcardline">
+		<span class="locality">San Jose</span>,  
+		<span class="region">CA</span> 
+		<span class="code">95134</span>
+	  </span>
+	  <span class="country-name vcardline">US</span>
+	</span>
+	<span class="vcardline">EMail: <a href="mailto:llorenzin@pulsesecure.net">llorenzin@pulsesecure.net</a></span>
+
+  </address>
+</div>
+
+</body>
+</html>
