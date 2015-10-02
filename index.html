@@ -454,6 +454,7 @@ ul.toc a:first-child {
 
   <link href="#rfc.toc" rel="Contents"/>
 <link href="#rfc.section.1" rel="Chapter" title="1 Introduction"/>
+<link href="#rfc.section.1.1" rel="Chapter" title="1.1 Requirements Language"/>
 <link href="#rfc.section.2" rel="Chapter" title="2 Requirements"/>
 <link href="#rfc.section.2.1" rel="Chapter" title="2.1 Requirements for SACM"/>
 <link href="#rfc.section.2.2" rel="Chapter" title="2.2 Requirements for the Architecture"/>
@@ -465,6 +466,7 @@ ul.toc a:first-child {
 <link href="#rfc.section.4" rel="Chapter" title="4 IANA Considerations"/>
 <link href="#rfc.section.5" rel="Chapter" title="5 Security Considerations"/>
 <link href="#rfc.section.5.1" rel="Chapter" title="5.1 Trust between Provider and Requestor"/>
+<link href="#rfc.section.5.2" rel="Chapter" title="5.2 Privacy Considerations"/>
 <link href="#rfc.section.6" rel="Chapter" title="6 Change Log"/>
 <link href="#rfc.section.6.1" rel="Chapter" title="6.1 -05 to -06"/>
 <link href="#rfc.references" rel="Chapter" title="7 References"/>
@@ -478,7 +480,7 @@ ul.toc a:first-child {
 
   <meta name="dct.creator" content="Cam-Winget, N. and L. Lorenzin" />
   <meta name="dct.identifier" content="urn:ietf:id:draft-ietf-sacm-requirements-latest" />
-  <meta name="dct.issued" scheme="ISO8601" content="2015-7" />
+  <meta name="dct.issued" scheme="ISO8601" content="2015-10-2" />
   <meta name="dct.abstract" content="This document defines the scope and set of requirements for the Secure Automation and Continuous Monitoring (SACM) architecture, data model and transport protocols.  The requirements and scope are based on the agreed upon use cases.  " />
   <meta name="description" content="This document defines the scope and set of requirements for the Secure Automation and Continuous Monitoring (SACM) architecture, data model and transport protocols.  The requirements and scope are based on the agreed upon use cases.  " />
 
@@ -502,12 +504,12 @@ ul.toc a:first-child {
   <td class="right">L. Lorenzin</td>
 </tr>
 <tr>
-  <td class="left">Expires: January 2, 2016</td>
+  <td class="left">Expires: April 4, 2016</td>
   <td class="right">Pulse Secure</td>
 </tr>
 <tr>
   <td class="left"></td>
-  <td class="right">July 2015</td>
+  <td class="right">October 2, 2015</td>
 </tr>
 
     	
@@ -527,7 +529,7 @@ ul.toc a:first-child {
 <p>This Internet-Draft is submitted in full conformance with the provisions of BCP 78 and BCP 79.</p>
 <p>Internet-Drafts are working documents of the Internet Engineering Task Force (IETF).  Note that other groups may also distribute working documents as Internet-Drafts.  The list of current Internet-Drafts is at http://datatracker.ietf.org/drafts/current/.</p>
 <p>Internet-Drafts are draft documents valid for a maximum of six months and may be updated, replaced, or obsoleted by other documents at any time.  It is inappropriate to use Internet-Drafts as reference material or to cite them other than as "work in progress."</p>
-<p>This Internet-Draft will expire on January 2, 2016.</p>
+<p>This Internet-Draft will expire on April 4, 2016.</p>
 <h1 id="rfc.copyrightnotice">
   <a href="#rfc.copyrightnotice">Copyright Notice</a>
 </h1>
@@ -540,7 +542,8 @@ ul.toc a:first-child {
   <ul class="toc">
 
   	<li>1.   <a href="#rfc.section.1">Introduction</a></li>
-<li>2.   <a href="#rfc.section.2">Requirements</a></li>
+<ul><li>1.1.   <a href="#rfc.section.1.1">Requirements Language</a></li>
+</ul><li>2.   <a href="#rfc.section.2">Requirements</a></li>
 <ul><li>2.1.   <a href="#rfc.section.2.1">Requirements for SACM</a></li>
 <li>2.2.   <a href="#rfc.section.2.2">Requirements for the Architecture</a></li>
 <li>2.3.   <a href="#rfc.section.2.3">Requirements for the Information Model</a></li>
@@ -551,6 +554,7 @@ ul.toc a:first-child {
 <li>4.   <a href="#rfc.section.4">IANA Considerations</a></li>
 <li>5.   <a href="#rfc.section.5">Security Considerations</a></li>
 <ul><li>5.1.   <a href="#rfc.section.5.1">Trust between Provider and Requestor</a></li>
+<li>5.2.   <a href="#rfc.section.5.2">Privacy Considerations</a></li>
 </ul><li>6.   <a href="#rfc.section.6">Change Log</a></li>
 <ul><li>6.1.   <a href="#rfc.section.6.1">-05 to -06</a></li>
 </ul><li>7.   <a href="#rfc.references">References</a></li>
@@ -565,6 +569,9 @@ ul.toc a:first-child {
 <p id="rfc.section.1.p.1">Today's environment of rapidly-evolving security threats highlights the need to automate the sharing of such information while protecting user information as well as the systems that store, process, and transmit this information.  Security threats can be detected in a number of ways. SACM's charter focuses on how to collect and share this information based on use cases that involve posture assessment of endpoints.  </p>
 <p id="rfc.section.1.p.2">Scalable and sustainable collection, expression, and evaluation of endpoint information is foundational to SACM's objectives.  To secure and defend a network, one must reliably determine what devices are on the network, how those devices are configured from a hardware perspective, what software products are installed on those devices, and how those products are configured.  We need to be able to determine, share, and use this information in a secure, timely, consistent, and automated manner to perform endpoint posture assessments.</p>
 <p id="rfc.section.1.p.3">This document focuses on describing the requirements for facilitating the exchange of posture assessment information in the enterprise, in particular, for the use cases as exemplified in <a href="#I-D.ietf-sacm-use-cases">[I-D.ietf-sacm-use-cases]</a>. Also, this document uses terminology defined in <a href="#I-D.ietf-sacm-terminology">[I-D.ietf-sacm-terminology]</a>.</p>
+<h1 id="rfc.section.1.1"><a href="#rfc.section.1.1">1.1.</a> Requirements Language</h1>
+<p id="rfc.section.1.1.p.1">The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in <a href="#RFC2119">RFC 2119</a> <cite title="NONE">[RFC2119]</cite>.</p>
+<p id="rfc.section.1.1.p.2">When the words appear in lower case, their natural language meaning is used.</p>
 <h1 id="rfc.section.2"><a href="#rfc.section.2">2.</a> <a href="#reqmts" id="reqmts">Requirements</a></h1>
 <p id="rfc.section.2.p.1">This document defines requirements based on the SACM use cases defined in <a href="#I-D.ietf-sacm-use-cases">[I-D.ietf-sacm-use-cases]</a>.  This section describes the requirements used by SACM to assess and compare candidate data models, interfaces, and protocols, to suit the SACM architecture.  These requirements express characteristics or features that a candidate protocol or data model must be capable of offering to ensure security and interoperability.</p>
 <p id="rfc.section.2.p.2">Multiple data models, protocols, and transports may be employed in a SACM environment. A SACM transport protocol is one that runs on top of L3 protocols such as TCP/IP or L4 protocols such as HTTP, carries operations (requests / responses), and moves data. </p>
@@ -662,7 +669,7 @@ ul.toc a:first-child {
 
 <dl>
   <dt>IM-001</dt>
-  <dd style="margin-left: 1">Extensible Attribute Vocabulary: the information model MUST define a minimum set of attributes for communicating Posture Information, to ensure interoperability between data models. (Individual data models may define attributes beyond the mandatory-to-implement minimum set.) The attributes should be defined with a clear mechanism for extensibility to enable data models to adhere to SACM's required attributes as well as allow for their own extensions. The attribute vocabulary should be defined with a clear mechanism for extensibility to enable future versions of the information model to be interoperably expanded with new attributes.</dd>
+  <dd style="margin-left: 1">Extensible Attribute Vocabulary: The information model MUST define a minimum set of attributes for communicating Posture Information, to ensure interoperability between data models. (Individual data models may define attributes beyond the mandatory-to-implement minimum set.) The attributes should be defined with a clear mechanism for extensibility to enable data models to adhere to SACM's required attributes as well as allow for their own extensions. The attribute vocabulary should be defined with a clear mechanism for extensibility to enable future versions of the information model to be interoperably expanded with new attributes.</dd>
   <dt>IM-002</dt>
   <dd style="margin-left: 1">Posture Data Publication: The information model MUST allow for the data to be provided by a SACM component either solicited or unsolicited. No aspect of the information model should be dependent upon or assume a push (unsolicited) or pull (solicited) model of publication. </dd>
   <dt>IM-003</dt>
@@ -687,7 +694,7 @@ ul.toc a:first-child {
   <dt>DM-003</dt>
   <dd style="margin-left: 1">Search Flexibility: The search interfaces and actions MUST include the ability to start a search anywhere within a data model structure, and the ability to search based on patterns ("wildcard searches") as well as specific data elements.</dd>
   <dt>DM-004</dt>
-  <dd style="margin-left: 1">Full Vs. Partial Updates: The data model SHOULD include the ability to allow providers of data to provide the data as a whole, or when updates occur.  For example, a consumer can request a full update on initial engagement, then request to receive deltas (updates containing only the changes since the last update) on an ongoing basis as new data is generated. </dd>
+  <dd style="margin-left: 1">Full vs. Partial Updates: The data model SHOULD include the ability to allow providers of data to provide the data as a whole, or when updates occur.  For example, a consumer can request a full update on initial engagement, then request to receive deltas (updates containing only the changes since the last update) on an ongoing basis as new data is generated. </dd>
   <dt>DM-005</dt>
   <dd style="margin-left: 1">Loose Coupling: The data model SHOULD allow for a loose coupling between the provider and the consumer, such that the consumer can request information without being required to request it from a specific provider, and a provider can publish information without having a specific consumer targeted to receive it.</dd>
   <dt>DM-006</dt>
@@ -785,6 +792,9 @@ ul.toc a:first-child {
 </ul>
 
 <p> </p>
+<h1 id="rfc.section.5.2"><a href="#rfc.section.5.2">5.2.</a> <a href="#Privacy" id="Privacy">Privacy Considerations</a></h1>
+<p id="rfc.section.5.2.p.1">SACM information may contain sensitive information about the target endpoint as well as revealing identity information of the producer or consumer of such information.  Similarly, as part of the SACM discovery mechanism, the advertised capabilities (and roles, e.g. SACM components enabled) by the endpoint may be construed as private information. There may be applications as well as business and regulatory practicess that require that aspects of such information be hidden from any parties that do not need to know it. </p>
+<p id="rfc.section.5.2.p.2">Data confidentiality can provide some level of privacy but may fall short where unecessary data is still transmitted.  In those cases, filtering requirements at the data model such as OP-005 must be applied to ensure that such data is not disclosed.  <a href="#RFC6973">[RFC6973]</a> provides guidelines for which SACM protocols and information and data models should follow.</p>
 <h1 id="rfc.section.6"><a href="#rfc.section.6">6.</a> <a href="#ChangeLog" id="ChangeLog">Change Log</a></h1>
 <h1 id="rfc.section.6.1"><a href="#rfc.section.6.1">6.1.</a> <a href="#latest" id="latest">-05 to -06</a></h1>
 <p id="rfc.section.6.1.p.1">Updated G-005 to clarify the MUST to allow non-standard extensions, SHOULD avoid collisions and ensure interoperability.</p>
@@ -826,9 +836,9 @@ ul.toc a:first-child {
   <tbody>
     <tr>
       <td class="reference">
-        <b id="RFC3444">[RFC3444]</b>
+        <b id="RFC6973">[RFC6973]</b>
       </td>
-      <td class="top"><a>Pras, A.</a> and <a>J. Schoenwaelder</a>, "<a href="http://tools.ietf.org/html/rfc3444">On the Difference between Information Models and Data Models</a>", RFC 3444, DOI 10.17487/RFC3444, January 2003.</td>
+      <td class="top"><a>Cooper, A.</a>, <a>Tschofenig, H.</a>, <a>Aboba, B.</a>, <a>Peterson, J.</a>, <a>Morris, J.</a>, <a>Hansen, M.</a> and <a>R. Smith</a>, "<a href="http://tools.ietf.org/html/rfc6973">Privacy Considerations for Internet Protocols</a>", RFC 6973, DOI 10.17487/RFC6973, July 2013.</td>
     </tr>
   </tbody>
 </table>
