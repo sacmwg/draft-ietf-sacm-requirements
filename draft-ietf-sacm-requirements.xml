@@ -7,7 +7,7 @@
      An alternate method (rfc include) is described in the references. -->
 <!ENTITY RFC5209 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.5209.xml">
 <!ENTITY RFC2119 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.2119.xml">
-<!ENTITY RFC3444 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.3444.xml">
+<!ENTITY RFC6973 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.6973.xml">
 <!ENTITY I-D.ietf-sacm-use-cases SYSTEM "http://xml.resource.org/public/rfc/bibxml3/reference.I-D.ietf-sacm-use-cases.xml">
 <!ENTITY I-D.ietf-sacm-terminology SYSTEM "http://xml.resource.org/public/rfc/bibxml3/reference.I-D.ietf-sacm-terminology">
 <!ENTITY I-D.handt-sacm-alternate-architecture SYSTEM "http://xml.resource.org/public/rfc/bibxml3/reference.I-D.handt-sacm-alternate-architecture.xml">
@@ -97,7 +97,7 @@
 
 
 
-    <date month="July" year="2015"/>
+    <date/>
 
 
     <area>General</area>
@@ -120,11 +120,13 @@
       <t>This document defines the scope and set of requirements for the Secure Automation and Continuous Monitoring (SACM) architecture, data model and transport protocols.
       The requirements and scope are based on the agreed upon use cases.
       </t>
-    </abstract>
+
+            </abstract>
   </front>
 
   <middle>
-    <section title="Introduction">
+      
+         <section title="Introduction">
         <t> Today's environment of rapidly-evolving security threats highlights the need to automate the sharing of such information while protecting user information as well as the systems that store,
             process, and transmit this information.  Security threats can be detected
             in a number of ways. SACM's charter focuses on how to collect and share this information based on use cases
@@ -140,8 +142,20 @@
       
 
       <t> This document focuses on describing the requirements for facilitating the exchange of posture assessment information in the enterprise, in particular, for the use cases as exemplified in <xref target="I-D.ietf-sacm-use-cases"/>. Also, this document uses terminology defined in <xref target="I-D.ietf-sacm-terminology"/>.</t>
+      
+      <section title="Requirements Language">
+          <t>The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
+              "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this
+              document are to be interpreted as described in <xref
+                  target="RFC2119">RFC 2119</xref>.</t>
+          <t>When the words appear in lower case, their natural language meaning is used.</t>
+      </section>
+      
+
 
     </section>
+    
+    
     
       
     <section anchor="reqmts" title="Requirements">
@@ -251,7 +265,7 @@
         
         <t><list hangIndent="1" style="hanging">
 
-            <t hangText="IM-001"> Extensible Attribute Vocabulary: the information model MUST define a minimum set of attributes for communicating Posture Information, to ensure interoperability between data models. (Individual data models may define attributes beyond the mandatory-to-implement minimum set.) The attributes should be defined with a clear mechanism for extensibility to enable data models to adhere to SACM's required attributes as well as allow for their own extensions. The attribute vocabulary should be defined with a clear mechanism for extensibility to enable future versions of the information model to be interoperably expanded with new attributes.</t>
+            <t hangText="IM-001"> Extensible Attribute Vocabulary: The information model MUST define a minimum set of attributes for communicating Posture Information, to ensure interoperability between data models. (Individual data models may define attributes beyond the mandatory-to-implement minimum set.) The attributes should be defined with a clear mechanism for extensibility to enable data models to adhere to SACM's required attributes as well as allow for their own extensions. The attribute vocabulary should be defined with a clear mechanism for extensibility to enable future versions of the information model to be interoperably expanded with new attributes.</t>
             
             <t hangText="IM-002"> Posture Data Publication: The information model MUST allow for the data to be provided by a SACM component either solicited or unsolicited. No aspect of the information model should be dependent upon or assume a push (unsolicited) or pull (solicited) model of publication. </t>
             
@@ -278,7 +292,7 @@
           
           <t hangText="DM-003"> Search Flexibility: The search interfaces and actions MUST include the ability to start a search anywhere within a data model structure, and the ability to search based on patterns ("wildcard searches") as well as specific data elements.</t>
           
-          <t hangText="DM-004"> Full Vs. Partial Updates: The data model SHOULD include the ability to allow providers of data to provide the data as a whole, or when updates occur.  For example, a consumer can request a full update on initial engagement, then request to receive deltas (updates containing only the changes since the last update) on an ongoing basis as new data is generated. </t>
+          <t hangText="DM-004"> Full vs. Partial Updates: The data model SHOULD include the ability to allow providers of data to provide the data as a whole, or when updates occur.  For example, a consumer can request a full update on initial engagement, then request to receive deltas (updates containing only the changes since the last update) on an ongoing basis as new data is generated. </t>
           
           <t hangText="DM-005"> Loose Coupling: The data model SHOULD allow for a loose coupling between the provider and the consumer, such that the consumer can request information without being required to request it from a specific provider, and a provider can publish information without having a specific consumer targeted to receive it.</t>
 
@@ -410,6 +424,10 @@
             </list> </t>
 
         </section>
+    <section anchor="Privacy" title="Privacy Considerations">
+        <t>SACM information may contain sensitive information about the target endpoint as well as revealing identity information of the producer or consumer of such information.  Similarly, as part of the SACM discovery mechanism, the advertised capabilities (and roles, e.g. SACM components enabled) by the endpoint may be construed as private information. There may be applications as well as business and regulatory practicess that require that aspects of such information be hidden from any parties that do not need to know it. </t>
+        <t> Data confidentiality can provide some level of privacy but may fall short where unecessary data is still transmitted.  In those cases, filtering requirements at the data model such as OP-005 must be applied to ensure that such data is not disclosed.  <xref target="RFC6973"/> provides guidelines for which SACM protocols and information and data models should follow.</t>
+        </section>
     </section>
     <section anchor="ChangeLog" title="Change Log">
         <section anchor="latest" title="-05 to -06">
@@ -450,7 +468,7 @@
      
     <references title="Informative References">
       <!-- Here we use entities that we defined at the beginning. -->
-      &RFC3444;
+      &RFC6973;
      
     </references>
 
@@ -466,3 +484,4 @@ v07 2015-07-06 LLL Updates based on open issue resolutions from 6/29 virtual int
      -->
   </back>
 </rfc>
+ 
