@@ -475,12 +475,12 @@ ul.toc a:first-child {
 <link href="#rfc.authors" rel="Chapter"/>
 
 
-  <meta name="generator" content="xml2rfc version 2.5.0 - http://tools.ietf.org/tools/xml2rfc" />
+  <meta name="generator" content="xml2rfc version 2.5.1 - http://tools.ietf.org/tools/xml2rfc" />
   <link rel="schema.dct" href="http://purl.org/dc/terms/" />
 
   <meta name="dct.creator" content="Cam-Winget, N. and L. Lorenzin" />
   <meta name="dct.identifier" content="urn:ietf:id:draft-ietf-sacm-requirements-latest" />
-  <meta name="dct.issued" scheme="ISO8601" content="2015-10-2" />
+  <meta name="dct.issued" scheme="ISO8601" content="2015-11-4" />
   <meta name="dct.abstract" content="This document defines the scope and set of requirements for the Secure Automation and Continuous Monitoring (SACM) architecture, data model and transport protocols.  The requirements and scope are based on the agreed upon use cases.  " />
   <meta name="description" content="This document defines the scope and set of requirements for the Secure Automation and Continuous Monitoring (SACM) architecture, data model and transport protocols.  The requirements and scope are based on the agreed upon use cases.  " />
 
@@ -504,12 +504,12 @@ ul.toc a:first-child {
   <td class="right">L. Lorenzin</td>
 </tr>
 <tr>
-  <td class="left">Expires: April 4, 2016</td>
+  <td class="left">Expires: May 7, 2016</td>
   <td class="right">Pulse Secure</td>
 </tr>
 <tr>
   <td class="left"></td>
-  <td class="right">October 2, 2015</td>
+  <td class="right">November 4, 2015</td>
 </tr>
 
     	
@@ -529,7 +529,7 @@ ul.toc a:first-child {
 <p>This Internet-Draft is submitted in full conformance with the provisions of BCP 78 and BCP 79.</p>
 <p>Internet-Drafts are working documents of the Internet Engineering Task Force (IETF).  Note that other groups may also distribute working documents as Internet-Drafts.  The list of current Internet-Drafts is at http://datatracker.ietf.org/drafts/current/.</p>
 <p>Internet-Drafts are draft documents valid for a maximum of six months and may be updated, replaced, or obsoleted by other documents at any time.  It is inappropriate to use Internet-Drafts as reference material or to cite them other than as "work in progress."</p>
-<p>This Internet-Draft will expire on April 4, 2016.</p>
+<p>This Internet-Draft will expire on May 7, 2016.</p>
 <h1 id="rfc.copyrightnotice">
   <a href="#rfc.copyrightnotice">Copyright Notice</a>
 </h1>
@@ -698,28 +698,26 @@ ul.toc a:first-child {
   <dt>DM-005</dt>
   <dd style="margin-left: 1">Loose Coupling: The data model SHOULD allow for a loose coupling between the provider and the consumer, such that the consumer can request information without being required to request it from a specific provider, and a provider can publish information without having a specific consumer targeted to receive it.</dd>
   <dt>DM-006</dt>
-  <dd style="margin-left: 1">Provider Identification: The interfaces and actions in the data model MUST include the ability to identify data from a specific provider. For example, a SACM consumer should be able to request all data to come from a specific provider (e.g. Provider A) as there can be a larger set of providers. </dd>
-  <dt>DM-007</dt>
   <dd style="margin-left: 1">Data Cardinality: The data model MUST describe their constraints (e.g. cardinality). As posture information and the tasks for collection, aggregation, or evaluation, could comprise one or more attributes, interfaces and actions MUST allow and account for such cardinality as well as whether the attributes are conditional, optional, or mandatory.</dd>
-  <dt>DM-008</dt>
+  <dt>DM-007</dt>
   <dd style="margin-left: 1">Data Model Negotiation: The interfaces and actions in the data model MUST include capability negotiation to enable discovery of supported and available data types and schemas.</dd>
-  <dt>DM-009</dt>
+  <dt>DM-008</dt>
   <dd style="margin-left: 1">Data Origin: The data model MUST include the ability for consumers to identify the data origin (provider that collected the data).</dd>
-  <dt>DM-010</dt>
+  <dt>DM-009</dt>
   <dd style="margin-left: 1">Origination Time: The data model SHOULD allow the provider to include the information's origination time. </dd>
-  <dt>DM-011</dt>
+  <dt>DM-010</dt>
   <dd style="margin-left: 1">Data Generation: The data model MUST allow the provider to include attributes defining how the data was generated (e.g. self-reported, reported by aggregator, scan result, etc.). </dd>
-  <dt>DM-012</dt>
+  <dt>DM-011</dt>
   <dd style="margin-left: 1">Data Source: The data model MUST allow the provider to include attributes defining the data source (target endpoint from which the data was collected) - e.g. hostname, domain (DNS) name or application name.</dd>
-  <dt>DM-013</dt>
+  <dt>DM-012</dt>
   <dd style="margin-left: 1">Data Updates: The data model SHOULD allow the provider to include attributes defining whether the information provided is a delta, partial, or full set of information.</dd>
-  <dt>DM-014</dt>
+  <dt>DM-013</dt>
   <dd style="margin-left: 1">Multiple Collectors: The data model MUST support the collection of attributes by a variety of collectors, including internal collectors, external collectors with an authenticated relationship with the endpoint, and external collectors based on network and other observers.</dd>
-  <dt>DM-015</dt>
+  <dt>DM-014</dt>
   <dd style="margin-left: 1">Attribute Extensibility: Use Cases in the whole of Section 2 describe the need for an attribute dictionary. With SACM's scope focused on posture assessment, the data model attribute collection and aggregation MUST have a well-understood set of attributes inclusive of their meaning or usage intent. The data model MUST include all attributes defined in the information model and MAY include additional attributes beyond those found in the information model. Additional attributes MUST be defined in accordance with the extensibility framework provided in the information model.</dd>
-  <dt>DM-016</dt>
+  <dt>DM-015</dt>
   <dd style="margin-left: 1">Solicited vs. Unsolicited Updates: The data model MUST enable a provider to publish data either solicited (in response to a request from a consumer) or unsolicited (as new data is generated, without a request required). For example, an external collector can publish data in response to a request by a consumer for information about an endpoint, or can publish data as it observes new information about an endpoint, without any specific consumer request triggering the publication; a compliance-server provider may publish endpoint posture information in response to a request from a consumer (solicited), or it may publish posture information driven by a change in the posture of the endpoint (unsolicited).</dd>
-  <dt>DM-017</dt>
+  <dt>DM-016</dt>
   <dd style="margin-left: 1">Transport Agnostic: The data model MUST be transport agnostic, to allow for the data operations to leverage the most appropriate SACM transport protocol.</dd>
 </dl>
 
@@ -743,6 +741,8 @@ ul.toc a:first-child {
   <dd style="margin-left: 1">Data Model Scalability: The operation resulting from a query operation MUST be able to handle the return and receipt of large amounts of data. Use Cases 2.1.4 and 2.1.5 describes the need for the data model to support scalability. For example, the query operation may result in a very large set of attributes, as well as a large set of targets.</dd>
   <dt>OP-007</dt>
   <dd style="margin-left: 1">Data Abstraction: The data model MUST allow a SACM component to communicate what data was used to construct the target endpoint's identity, so other SACM components can determine whether they are constructing an equivalent target endpoint (and their identity) and whether they have confidence in that identity. SACM components SHOULD have interfaces defined to transmit this data directly or to refer to where the information can be retrieved.</dd>
+  <dt>OP-008</dt>
+  <dd style="margin-left: 1">Provider Restriction: Request operations MUST include the ability to restrict the data to be provided by a specific provider or a provider with specific characteristics. Response operations MUST include the ability to identify the provider that supplied the response. For example, a SACM Consumer should be able to request that all of the data come from a specific provider by identity (e.g. Provider A) or from a Provider that is in a specific location (e.g. in the Boston office).</dd>
 </dl>
 <h1 id="rfc.section.2.6"><a href="#rfc.section.2.6">2.6.</a> <a href="#xport" id="xport">Requirements for SACM Transport Protocols</a></h1>
 <p id="rfc.section.2.6.p.1">The term transport protocol is frequently overloaded. The term SACM transport protocol is intended to be distinguished from underlying layer 3 and 4 protocols such as TCP/IP and TLS. However, it is possible that a layer 3 or 4 protocol may be used as a SACM transport protocol, either alone or as part of a SACM transport protocol (i.e. using HTTP over TLS with XML as the content). The SACM transport protocol is focused on moving data and performing necessary access control operations; it is agnostic to the data model operations.</p>
@@ -809,7 +809,7 @@ ul.toc a:first-child {
       <td class="reference">
         <b id="I-D.ietf-sacm-terminology">[I-D.ietf-sacm-terminology]</b>
       </td>
-      <td class="top"><a>Birkholz, H.</a>, "<a href="http://tools.ietf.org/html/draft-ietf-sacm-terminology-07">Secure Automation and Continuous Monitoring (SACM) Terminology</a>", Internet-Draft draft-ietf-sacm-terminology-07, July 2015.</td>
+      <td class="top"><a>Birkholz, H.</a>, "<a href="http://tools.ietf.org/html/draft-ietf-sacm-terminology-08">Secure Automation and Continuous Monitoring (SACM) Terminology</a>", Internet-Draft draft-ietf-sacm-terminology-08, October 2015.</td>
     </tr>
     <tr>
       <td class="reference">
