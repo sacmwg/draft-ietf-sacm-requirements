@@ -296,29 +296,27 @@
           
           <t hangText="DM-005"> Loose Coupling: The data model SHOULD allow for a loose coupling between the provider and the consumer, such that the consumer can request information without being required to request it from a specific provider, and a provider can publish information without having a specific consumer targeted to receive it.</t>
 
-          <t hangText="DM-006"> Provider Identification: The interfaces and actions in the data model MUST include the ability to identify data from a specific provider. For example, a SACM consumer should be able to request all data to come from a specific provider (e.g. Provider A) as there can be a larger set of providers. </t>
+          <t hangText="DM-006"> Data Cardinality: The data model MUST describe their constraints (e.g. cardinality). As posture information and the tasks for collection, aggregation, or evaluation, could comprise one or more attributes, interfaces and actions MUST allow and account for such cardinality as well as whether the attributes are conditional, optional, or mandatory.</t>
 
-          <t hangText="DM-007"> Data Cardinality: The data model MUST describe their constraints (e.g. cardinality). As posture information and the tasks for collection, aggregation, or evaluation, could comprise one or more attributes, interfaces and actions MUST allow and account for such cardinality as well as whether the attributes are conditional, optional, or mandatory.</t>
-
-          <t hangText="DM-008"> Data Model Negotiation: The interfaces and actions in the data model MUST include capability negotiation to enable discovery of supported and available data types and schemas.</t>
+          <t hangText="DM-007"> Data Model Negotiation: The interfaces and actions in the data model MUST include capability negotiation to enable discovery of supported and available data types and schemas.</t>
         
-          <t hangText="DM-009"> Data Origin: The data model MUST include the ability for consumers to identify the data origin (provider that collected the data).</t>
+          <t hangText="DM-008"> Data Origin: The data model MUST include the ability for consumers to identify the data origin (provider that collected the data).</t>
      
-          <t hangText="DM-010"> Origination Time: The data model SHOULD allow the provider to include the information's origination time. </t>
+          <t hangText="DM-009"> Origination Time: The data model SHOULD allow the provider to include the information's origination time. </t>
           
-          <t hangText="DM-011"> Data Generation: The data model MUST allow the provider to include attributes defining how the data was generated (e.g. self-reported, reported by aggregator, scan result, etc.). </t>
+          <t hangText="DM-010"> Data Generation: The data model MUST allow the provider to include attributes defining how the data was generated (e.g. self-reported, reported by aggregator, scan result, etc.). </t>
           
-          <t hangText="DM-012"> Data Source: The data model MUST allow the provider to include attributes defining the data source (target endpoint from which the data was collected) - e.g. hostname, domain (DNS) name or application name.</t>
+          <t hangText="DM-011"> Data Source: The data model MUST allow the provider to include attributes defining the data source (target endpoint from which the data was collected) - e.g. hostname, domain (DNS) name or application name.</t>
           
-          <t hangText="DM-013"> Data Updates: The data model SHOULD allow the provider to include attributes defining whether the information provided is a delta, partial, or full set of information.</t>
+          <t hangText="DM-012"> Data Updates: The data model SHOULD allow the provider to include attributes defining whether the information provided is a delta, partial, or full set of information.</t>
           
-          <t hangText="DM-014"> Multiple Collectors: The data model MUST support the collection of attributes by a variety of collectors, including internal collectors, external collectors with an authenticated relationship with the endpoint, and external collectors based on network and other observers.</t>
+          <t hangText="DM-013"> Multiple Collectors: The data model MUST support the collection of attributes by a variety of collectors, including internal collectors, external collectors with an authenticated relationship with the endpoint, and external collectors based on network and other observers.</t>
           
-          <t hangText="DM-015"> Attribute Extensibility: Use Cases in the whole of Section 2 describe the need for an attribute dictionary. With SACM's scope focused on posture assessment, the data model attribute collection and aggregation MUST have a well-understood set of attributes inclusive of their meaning or usage intent. The data model MUST include all attributes defined in the information model and MAY include additional attributes beyond those found in the information model. Additional attributes MUST be defined in accordance with the extensibility framework provided in the information model.</t>
+          <t hangText="DM-014"> Attribute Extensibility: Use Cases in the whole of Section 2 describe the need for an attribute dictionary. With SACM's scope focused on posture assessment, the data model attribute collection and aggregation MUST have a well-understood set of attributes inclusive of their meaning or usage intent. The data model MUST include all attributes defined in the information model and MAY include additional attributes beyond those found in the information model. Additional attributes MUST be defined in accordance with the extensibility framework provided in the information model.</t>
 
-          <t hangText="DM-016"> Solicited vs. Unsolicited Updates: The data model MUST enable a provider to publish data either solicited (in response to a request from a consumer) or unsolicited (as new data is generated, without a request required). For example, an external collector can publish data in response to a request by a consumer for information about an endpoint, or can publish data as it observes new information about an endpoint, without any specific consumer request triggering the publication; a compliance-server provider may publish endpoint posture information in response to a request from a consumer (solicited), or it may publish posture information driven by a change in the posture of the endpoint (unsolicited).</t>
+          <t hangText="DM-015"> Solicited vs. Unsolicited Updates: The data model MUST enable a provider to publish data either solicited (in response to a request from a consumer) or unsolicited (as new data is generated, without a request required). For example, an external collector can publish data in response to a request by a consumer for information about an endpoint, or can publish data as it observes new information about an endpoint, without any specific consumer request triggering the publication; a compliance-server provider may publish endpoint posture information in response to a request from a consumer (solicited), or it may publish posture information driven by a change in the posture of the endpoint (unsolicited).</t>
 
-          <t hangText="DM-017"> Transport Agnostic: The data model MUST be transport agnostic, to allow for the data operations to leverage the most appropriate SACM transport protocol.</t>
+          <t hangText="DM-016"> Transport Agnostic: The data model MUST be transport agnostic, to allow for the data operations to leverage the most appropriate SACM transport protocol.</t>
 
 	 	          </list> </t>
       
@@ -344,7 +342,8 @@
           
           <t hangText="OP-007"> Data Abstraction: The data model MUST allow a SACM component to communicate what data was used to construct the target endpoint's identity, so other SACM components can determine whether they are constructing an equivalent target endpoint (and their identity) and whether they have confidence in that identity. SACM components SHOULD have interfaces defined to transmit this data directly or to refer to where the information can be retrieved.</t>
 
-          </list></t>
+          <t hangText="OP-008"> Provider Restriction: Request operations MUST include the ability to restrict the data to be provided by a specific provider or a provider with specific characteristics. Response operations MUST include the ability to identify the provider that supplied the response. For example, a SACM Consumer should be able to request that all of the data come from a specific provider by identity (e.g. Provider A) or from a Provider that is in a specific location (e.g. in the Boston office).</t>
+        </list></t>
           </section>
       
       
