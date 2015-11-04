@@ -1,0 +1,27 @@
+language: python
+rvm:
+  - 2.2.0
+before_install:
+- sudo apt-get update -qq
+- sudo apt-get install -y python-lxml python-pip
+install:
+- deactivate
+- sudo pip install xml2rfc
+script: 
+- make ghpages
+env:
+  global:
+  - secure: ugnQYuuOkZl3Rd2vX1KjItoFaChnnPMV3tCf+neOYLeAixIv6+fKQG1AwVd9E4aNsIQedZ9sIdf5Y1MkVCT+zitZM9f4S4mW7b6Jbe8/rbXzr+Lrg3hU+DYi/aiTDvEypZ97XuInpBUGJLYkGl9NVks99A/Q82CCFVL+ZobaN1JdpCHwBmCiD0S0hUZMkXB/kQbuF9Jw6fhCkuMo6RADBPW8GsUcjxmU/KZRV+/hRs0echNWq7UuBJ8Fe2Gj8HD+hwfoV+6pGAeZzniTkV23xKBRXiWwIrFqrkO6fUmdp5eajRzGltbAtdzDaqEmNoTcx9gcrG1T4OJItRhj+WMY6KBUcuMoecah9uEPcN4g/hWyyQMT6tS5NsgeBhB7patGzE6PmtbZ/GJBVyh9Kt0BQ8JADR7GV6wgKIcCzpXweYyUXLaUPPY+VogkwhH6UBHUJ0qre/gOstVZE6dbI05z0VUrrut0B4pigS7JrtUgLQ+Z0ePaCbnBCXTYiCLIFMZpFPjNNCiaDfjpCl3mwjPCQOJm3oPb+7h89Hdb++L2U+Iw8VKEXF4MuWbT9NZpt9v7y+zQDpBVmySJMQLKcPF6euN2+CYEU9wfa/iWoEqcqUO8Y6dPR8d5i0Rz78UFokEIfIo5Mn7XMlrsGvRp/5gtbL52yoGF34n99KNrdaRizqg=
+before_deploy: make submit
+deploy:
+  provider: releases
+  api-key:
+    secure: UxxrSOF4wfTh1Y6zkFUqfROIdOibTtWZ7qK6HY1CDdzwl2kpXaJZ0g0FMV7fSfJsrLRjbUv3jl7Ob2JSDtIsWNE1OlG0bb+IqwG4cSTU5avDFJeDwqFGRYCmoqdeEUzyXuwfzhwq+6iVmwONMXsZal6Ww3yegcENnOYX9x/GmKI=
+  file:
+  - $TRAVIS_TAG.txt
+  - $TRAVIS_TAG.html
+  - $TRAVIS_TAG.xml
+  skip_cleanup: true
+  on:
+    branch: master
+    tags: true
