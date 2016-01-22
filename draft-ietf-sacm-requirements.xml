@@ -190,9 +190,9 @@
    
       <t><list hangIndent="1" style="hanging">
          
-         <t hangText="G-001"> Solution Extensibility: The information model, data models, protocols, and transports defined by SACM MUST be designed to allow support for future extensions, including both standard and proprietary transport protocols and data models. </t>
+         <t hangText="G-001"> Solution Extensibility: The information model, data models, protocols, and transports defined by SACM MUST be designed to allow support for future (SACM) extensions.  SACM SHOULD allow implementations to use their own extensions; either proprietary data models, protocols or extensions to SACM data models or protocols could be used though they are not considered to be SACM compliant. </t>
             <t><list hangIndent="1" style="numbers">
-                <t> The information model and device interfaces (see G-012) MUST support the ability to add new operations while maintaining backwards compatibility. SACM-defined transport protocols MUST have extensibility to allow them to transport operations that are defined in the future.</t>
+                <t> The information model and programmatic interfaces (see G-012 for one example) MUST support the ability to add new operations while maintaining backwards compatibility. SACM-defined transport protocols MUST have extensibility to allow them to transport operations that are defined in the future.</t>
                 <t> The query language MUST allow for general inquiries, as well as expression of specific attributes or relationships between attributes to follow; the retrieval of specific information based on an event, or on a continuous basis; and the ability to retrieve specific pieces of information, specific types or classes of information, or the entirety of available information.</t>
                 <t> The information model MUST accommodate the interoperable addition of new data types and/or schemas.</t>
                 </list></t>
